@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+    /* cabecario */
+header{
+    background-color: #ffffff;
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+header img{
+    margin: 0px 22px;
+}
