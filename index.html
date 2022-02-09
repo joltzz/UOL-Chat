@@ -11,21 +11,83 @@
 </head>
 
 <body>
+    <!-- Tela de Login -->
+    <div class="loginScreen">
+
+        <img src="imgs/logo 1.svg" alt="">
+        <form>
+            <input class="nome" type="text" placeholder="Digite seu nome">
+            <input class="botao-verde" type="button" value="Entrar" onclick="entrar()">
+        </form>
+    </div>
+
+    <!-- Tela Principal -->
     <header>
         <a href="#"><img src="imgs/logo 1.svg"></a>
         <a href="#"><img src="imgs/people.svg" onclick=""></a>
     </header>
 
     <main>
-        
+        <div class="container">
+            <ul>
+                <li data-identifier="message" class="status">
+                    <p><span>(09:21:45)</span>João entra na sala...</p>
+                </li>
+                <li data-identifier="message">
+                    <p><span>(09:22:28)</span> João para Todos: Bom dia</p>
+                </li>
+                <li data-identifier="message">
+                    <p><span>(09:22:38)</span> Maria para João: Oi João :)</p>
+                </li>
+                <li data-identifier="message" class="reservada">
+                    <p><span>(09:22:48)</span> João reservadamente para Maria: Oi gatinha quer tc?</p>
+                </li>
+                <li data-identifier="message" class="status">
+                    <p><span>(09:22:58)</span> Maria sai da sala...</p>
+                </li>
+            </ul>
+        </div>
     </main>
-
     <footer>
         <input type="text" placeholder="Escreva aqui...">
-        <img src="imgs/papperplane.svg" onclick="enviarMensagem()">
+        <a href="#"><img src="imgs/papperplane.svg" onclick="enviarMensagem()"></a>
     </footer>
 
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <!-- Barra Lateral -->
+    <div class="escurecido hide" onclick="fecharMenu()">
+    </div>
+
+    <nav class="menu">
+        <h2>Escolha um contato para enviar sua mensagem:</h2>
+        <ul>
+            <li onclick="escolherContato(this)" class="selecionado">
+                <ion-icon name="people"></ion-icon><p>Todos</p>
+                <ion-icon class="check" name="checkmark-sharp"></ion-icon>
+            </li>
+            <li onclick="escolheDestinatario(this)">
+                <ion-icon name="person-circle"></ion-icon><p>João</p>
+                <ion-icon class="check" name="checkmark-sharp"></ion-icon>
+            </li>
+            <li onclick="escolheDestinatario(this)">
+                <ion-icon name="person-circle"></ion-icon><p>Maria</p>
+                <ion-icon class="check" name="checkmark-sharp"></ion-icon>
+            </li>
+        </ul>
+        <h2>Escolha a visibilidade</h2>
+        <ul>
+            <li class="selecionado" onclick="escolheVisibilidade(this)">
+                <ion-icon name="lock-closed"></ion-icon><p>Público</p>
+                <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
+            </li>
+            <li onclick="escolheVisibilidade(this)">
+                <ion-icon name="lock-open"></ion-icon><p>Reservadamente</p>
+                <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
+            </li>
+        </ul>
+    </nav>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="mainScript.js"></script>
 </body>
 
