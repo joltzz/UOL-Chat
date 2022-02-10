@@ -17,8 +17,14 @@
         <img src="imgs/logo 1.svg" alt="">
         <form>
             <input class="nome" type="text" placeholder="Digite seu nome" data-identifier="enter-name">
-            <input class="botao-verde" type="button" value="Entrar" onclick="entrar()">
+            <input class="botao-verde" type="button" value="Entrar" onclick="entrar()" data-identifier="start">
         </form>
+        <!-- <div class="carregando hide">
+            <img src="./imgs/loading-buffering.gif">
+            <p>Entrando...</p>
+        </div> -->
+        <div class="mensagem"><p></p>
+        </div>
     </div>
 
     <!-- Tela Principal -->
@@ -28,23 +34,9 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="mensagens">
             <ul>
-                <li data-identifier="message" class="status">
-                    <p><span>(09:21:45)</span>João entra na sala...</p>
-                </li>
-                <li data-identifier="message">
-                    <p><span>(09:22:28)</span> João para <strong>Bom dia</strong></p>
-                </li>
-                <li data-identifier="message">
-                    <p><span>(09:22:38)</span> Maria para João: Oi João :)</p>
-                </li>
-                <li data-identifier="message" class="reservada">
-                    <p><span>(09:22:48)</span> João reservadamente para Maria: Oi gatinha quer tc?</p>
-                </li>
-                <li data-identifier="message" class="status">
-                    <p><span>(09:22:58)</span> Maria sai da sala...</p>
-                </li>
+                <!-- as mensagens serão carregadas dinamicamente via js -->
             </ul>
         </div>
     </main>
@@ -58,35 +50,24 @@
     </div>
 
     <nav class="menu">
-        <h2>Escolha um contato para enviar sua mensagem:</h2>
-        <ul>
-            <li onclick="escolherContato(this)" class="selecionado">
-                <ion-icon name="people"></ion-icon>
-                <p>Todos</p>
-                <ion-icon class="check" name="checkmark-sharp"></ion-icon>
-            </li>
-            <li onclick="escolheDestinatario(this)">
-                <ion-icon name="person-circle"></ion-icon><p>João</p>
-                <ion-icon class="check" name="checkmark-sharp"></ion-icon>
-            </li>
-            <li onclick="escolheDestinatario(this)">
-                <ion-icon name="person-circle"></ion-icon><p>Maria</p>
-                <ion-icon class="check" name="checkmark-sharp"></ion-icon>
-            </li>
+        <h2>Escolha um contato para enviar mensagem:</h2>
+        <ul class="participantes">
+            <!--Será carregado dinamicamente via js-->
         </ul>
-        <h2>Escolha a visibilidade</h2>
+        <h2>Escolha a visibilidade:</h2>
         <ul>
-            <li class="selecionado" onclick="escolheVisibilidade(this)">
+            <li class="selecionado" onclick="escolheVisibilidade(this)" data-identifier="visibility">
                 <ion-icon name="lock-open"></ion-icon><p>Público</p>
                 <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
             </li>
-            <li onclick="escolheVisibilidade(this)">
+            <li onclick="escolheVisibilidade(this)" data-identifier="visibility">
                 <ion-icon name="lock-closed"></ion-icon><p>Reservadamente</p>
                 <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
             </li>
         </ul>
     </nav>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="mainScript.js"></script>

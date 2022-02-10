@@ -42,14 +42,30 @@
     border: none;
 }
 .loginScreen form input[type=button]:hover{
-background-color: green;
-cursor: pointer;
-color: white;
+    background-color: green;
+    cursor: pointer;
+    color: white;
 }
 .loginScreen img{
     position: fixed;
     top: 72px;
     width: 130px;
+}
+.loginScreen .mensagem{
+    position: fixed;
+    bottom: 72px;
+    font-family: 'Roboto';
+}
+.loginScreen .carregando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loginScreen .carregando p {
+    font-family: 'Roboto';
+    font-size: 25px;
+    margin-top: 20px;
 }
 
     /* cabecario */
@@ -97,11 +113,18 @@ main li p{
     font-family: 'Roboto';
     font-weight: 400;
 }
-.status{
-    background-color: #dcdcdc;
+.message{
+    background-color: #FFF;
 }
-.reservada{
-    background-color: #ffdede;
+
+.status {
+    background-color: #DCDCDC;
+}
+.private_message {
+    background-color: #FFDEDE;
+}
+b{
+    font-weight: bold;
 }
 .check{
     font-size: 17px;
@@ -185,11 +208,15 @@ nav li p{
     /* Outras Classes */
 
 .escurecido{
-    position: fixed;
+    position:fixed;
     z-index: 1;
-    margin: 0px 0px 0px 0px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    transition: 0.5s linear;    
+    transition: 0.5s linear;
+    cursor: pointer;  
 }
 .hide{
     display: none;
