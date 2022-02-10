@@ -16,7 +16,7 @@
 
         <img src="imgs/logo 1.svg" alt="">
         <form>
-            <input class="nome" type="text" placeholder="Digite seu nome">
+            <input class="nome" type="text" placeholder="Digite seu nome" data-identifier="enter-name">
             <input class="botao-verde" type="button" value="Entrar" onclick="entrar()">
         </form>
     </div>
@@ -24,7 +24,7 @@
     <!-- Tela Principal -->
     <header>
         <a href="#"><img src="imgs/logo 1.svg"></a>
-        <a href="#"><img src="imgs/people.svg" onclick=""></a>
+        <a href="#"><img src="imgs/people.svg" onclick="abrirMenu()"></a>
     </header>
 
     <main>
@@ -34,7 +34,7 @@
                     <p><span>(09:21:45)</span>João entra na sala...</p>
                 </li>
                 <li data-identifier="message">
-                    <p><span>(09:22:28)</span> João para Todos: Bom dia</p>
+                    <p><span>(09:22:28)</span> João para <strong>Bom dia</strong></p>
                 </li>
                 <li data-identifier="message">
                     <p><span>(09:22:38)</span> Maria para João: Oi João :)</p>
@@ -61,7 +61,8 @@
         <h2>Escolha um contato para enviar sua mensagem:</h2>
         <ul>
             <li onclick="escolherContato(this)" class="selecionado">
-                <ion-icon name="people"></ion-icon><p>Todos</p>
+                <ion-icon name="people"></ion-icon>
+                <p>Todos</p>
                 <ion-icon class="check" name="checkmark-sharp"></ion-icon>
             </li>
             <li onclick="escolheDestinatario(this)">
@@ -76,11 +77,11 @@
         <h2>Escolha a visibilidade</h2>
         <ul>
             <li class="selecionado" onclick="escolheVisibilidade(this)">
-                <ion-icon name="lock-closed"></ion-icon><p>Público</p>
+                <ion-icon name="lock-open"></ion-icon><p>Público</p>
                 <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
             </li>
             <li onclick="escolheVisibilidade(this)">
-                <ion-icon name="lock-open"></ion-icon><p>Reservadamente</p>
+                <ion-icon name="lock-closed"></ion-icon><p>Reservadamente</p>
                 <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
             </li>
         </ul>

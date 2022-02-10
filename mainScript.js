@@ -16,5 +16,17 @@ function entrar(){
     }
 }
 
+    //Função para abrir o menu/barra lateral
+function abrirMenu(){
+    const menu=document.querySelector(".menu")
+    document.querySelector(".escurecido").classList.remove("hide");
+    menu.style.width="259px";
+}
 
+    //Função para fechar o Menu ao clicar fora
+function fecharMenu(){
+    const menu=document.querySelector(".menu")
+    document.querySelector(".escurecido").classList.add("hide")
+    menu.style.width="0px"
+}
 

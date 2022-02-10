@@ -167,9 +167,19 @@ nav h2{
     text-align: center;
 }
 nav li ion-icon{
+    margin-left: 10px;
     margin-right: 7px;
     font-size: 25px;
+    margin-bottom: 10px;
 }
+nav li{
+    display: flex;
+    margin-bottom: 5px;
+}
+nav li p{
+    margin-top: 6px;
+}
+
 
 
     /* Outras Classes */
