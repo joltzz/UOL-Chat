@@ -102,7 +102,66 @@ function adicionaParticipantes(participante){
     }  
 }
 
- 
+    //Função para enviar a mensagem para o sistema
+function enviarMensagem(){
+    let mensagem=document.querySelector("footer input").value
+    if(mensagem){
+        let objetoMensagem={
+            from:usuario.name,
+            to:contato,
+            text:mensagem,
+            type:type
+        }
+        const promise=axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",objetoMensagem)
+        //Verificação da mensagem
+        promise.then(mensagemEnviada)
+        promise.catch(mensagemErro)
+    }
+}
+
+    //Envio da mensage caso exito
+function mensagemEnviada(){
+    document.querySelector("footer input").value=""
+    carregarMensagens();
+}
+
+    //Reload na pagina caso de erro
+function mensagemErro(){
+    window.location.reload();
+}
+
+function escolheDestinatario (elemento) {
+    contato=elemento.getElementsByTagName("p")[0].innerHTML
+    const selecionado = elemento.parentNode.querySelector(".selecionado")
+    if(selecionado !== null) { 
+        selecionado.classList.remove("selecionado");
+    }
+    elemento.classList.add("selecionado");
+    const resumo = document.querySelector('footer p');
+    resumo.innerHTML=`Enviando para ${contato} (${visibilidade})`
+}
+
+function escolheVisibilidade(elemento){
+    visibilidade=elemento.getElementsByTagName("p")[0].innerHTML
+    switch(visibilidade){
+        case "Público":
+            type:"message"
+            break;
+        case "Reservadamente":
+            type:"private_message"
+            break;
+        default:
+            break;
+    }
+    const selecionado=elemento.parentNode.querySelector(".selecionado")
+    if(selecionado!==null){
+        selecionado.classList.remove("selecionado");
+    }
+    elemento.classList.add("selecionado");
+    const resumo=document.querySelector("footer p")
+    resumo.innerHTML=`Enviando para ${contato} (${visibilidade})`
+}
+
     //Função para abrir o menu/barra lateral
 function abrirMenu(){
     const menu=document.querySelector(".menu")
@@ -127,12 +186,5 @@ function recarregarPagina(){
 document.querySelector('footer input[type="text"]').addEventListener('keypress',function(tecla){
     if(tecla.key==="Enter"){
         enviarMensagem();
-    }    
-});
-
-    //FUNÇÃO PARA O USUARIO SOMENTE PRESSIONAR ENTER PARA ENVIAR A MENSAGEM(LOGIN)
-document.querySelector('.nome').addEventListener('keypress',function(tecla){
-    if(tecla.key==="Enter"){
-        entrar();
     }    
 });
